@@ -55,12 +55,8 @@ angular.module('adf.widget.tox', ['adf.provider'])
 
     };
     $scope.startTox = function(){
-      var url = $scope.microtool.extUrls[0];
-      $http({
-        method: 'GET',
-        url: url
-      }).then(function successCallback(response) {
-      }, function errorCallback(response) {
+      $http.get($scope.microtool.extUrls[0] + '/tox').then(function(exitCodeResponse){
+      }, function(err){
       });
     };
 
